@@ -1,0 +1,44 @@
+[
+  {"id":"F01","type":"fact","q":"隐鼠到底是怎么死的？","expect":"book_qa","gold":["c01-17"],"ref":"不是被猫吃的：隐鼠缘着长妈妈的腿要爬上去，被她一脚踏死了。"},
+  {"id":"F02","type":"fact","q":"长妈妈给“我”买来的《山海经》，她管它叫什么？","expect":"book_qa","gold":["c02-24"],"ref":"三哼经。"},
+  {"id":"F03","type":"fact","q":"百草园里有哪些让“我”着迷的东西？","expect":"book_qa","gold":["c06-2","c06-3"],"ref":"碧绿的菜畦、石井栏、皂荚树、桑椹，鸣蝉、黄蜂、叫天子，油蛉、蟋蟀、蜈蚣、斑蝥，何首乌、覆盆子等。"},
+  {"id":"F04","type":"fact","q":"美女蛇的故事是谁讲给“我”听的？","expect":"book_qa","gold":["c06-3","c06-4"],"ref":"长妈妈。"},
+  {"id":"F05","type":"fact","q":"三味书屋的先生是个什么样的人？","expect":"book_qa","gold":["c06-11"],"ref":"高而瘦的老人，须发花白，戴大眼镜；是本城极方正、质朴、博学的人。"},
+  {"id":"F06","type":"fact","q":"藤野先生是怎么帮“我”改讲义的？","expect":"book_qa","gold":["c09-15"],"ref":"讲义从头到末都用红笔添改过，补了脱漏的地方，连文法错误也一一订正，一直持续到他教完所担任的功课。"},
+  {"id":"F07","type":"fact","q":"“我”为什么决定不再学医、离开仙台？","expect":"book_qa","gold":["c09-29","c09-30","c09-31","c09-32"],"ref":"在课堂上看到时事片里中国人被当作侦探枪毙、围观的中国人麻木，日本同学欢呼，这让“我”的意见变化了，于是不再学医、离开仙台。"},
+  {"id":"F08","type":"fact","q":"藤野先生的照片现在挂在哪里？","expect":"book_qa","gold":["c09-38"],"ref":"挂在“我”北京寓居的东墙上，书桌对面。"},
+  {"id":"F09","type":"fact","q":"名医开的药引里，蟋蟀有什么特别的要求？","expect":"book_qa","gold":["c07-7"],"ref":"要“原配”，即本在一窠中的一对。"},
+  {"id":"F10","type":"fact","q":"去看五猖会之前，父亲要“我”先做什么？","expect":"book_qa","gold":["c04-8","c04-10","c04-13","c04-15"],"ref":"把《鉴略》读熟、背出来，背不出就不准去。"},
+  {"id":"F11","type":"fact","q":"范爱农最后是怎么死的？","expect":"book_qa","gold":["c10-51","c10-52","c10-53"],"ref":"坐船看戏时落水淹死，尸体在菱荡里找到；“我”至今不明白他是失足还是自杀。"},
+  {"id":"F12","type":"fact","q":"《二十四孝图》里最让“我”反感的是哪两个故事？","expect":"book_qa","gold":["c03-13"],"ref":"“老莱娱亲”和“郭巨埋儿”。"},
+  {"id":"F13","type":"fact","q":"衍太太怂恿“我”做什么？","expect":"book_qa","gold":["c08-6"],"ref":"拿母亲的钱用，或者把首饰找出来去变卖。"},
+  {"id":"F14","type":"fact","q":"百草园后来怎么样了？","expect":"book_qa","gold":["c06-1"],"ref":"早已连同屋子一起卖给了朱文公的子孙。"},
+
+  {"id":"A01","type":"absent","q":"藤野先生的生日是哪天？","expect":"book_qa","gold":[],"ref":"书中没有提到。"},
+  {"id":"A02","type":"absent","q":"三味书屋的先生叫什么名字？","expect":"book_qa","gold":["c06-11"],"ref":"书中没有写先生的名字，只描写了他的样貌和为人。"},
+  {"id":"A03","type":"absent","q":"范爱农的女儿后来在哪里工作？","expect":"book_qa","gold":["c10-55"],"ref":"书中没有提到；作者只说不知道她的景况。"},
+  {"id":"A04","type":"absent","q":"长妈妈的真实姓名是什么？","expect":"book_qa","gold":["c02-30"],"ref":"书中没有给出，作者说自己终于不知道她的姓名。"},
+  {"id":"A05","type":"absent","q":"迎神赛会上扮演无常的人叫什么名字？","expect":"book_qa","gold":[],"ref":"书中没有提到。"},
+
+  {"id":"P01","type":"premise","q":"长妈妈为什么要故意害死隐鼠？","expect":"book_qa","gold":["c01-17"],"ref":"前提有误：书中并没有说长妈妈故意害死隐鼠，是隐鼠缘着她的腿爬上去，被她一脚踏死。"},
+  {"id":"P02","type":"premise","q":"藤野先生为什么要给鲁迅发奖学金？","expect":"book_qa","gold":[],"ref":"前提有误：书中没有藤野先生发奖学金的情节；他做的是帮“我”添改讲义、关心解剖实习等。"},
+  {"id":"P03","type":"premise","q":"三味书屋的先生为什么经常用戒尺打学生？","expect":"book_qa","gold":["c06-19"],"ref":"前提有误：书中说先生有一条戒尺，但不常用，普通总不过瞪几眼。"},
+  {"id":"P04","type":"premise","q":"父亲为什么最后没让“我”去看五猖会？","expect":"book_qa","gold":["c04-17","c04-18"],"ref":"前提有误：“我”背出《鉴略》后，父亲同意了，“我”去了五猖会（只是已没有先前那么高兴）。"},
+  {"id":"P05","type":"premise","q":"范爱农为什么当上了绍兴知府？","expect":"book_qa","gold":["c10-30"],"ref":"前提有误：书中范爱农做的是师范学校的监学，不是知府。"},
+
+  {"id":"E01","type":"explain","q":"","selection":"三哼经","chapter":"c02","expect":"explain"},
+  {"id":"E02","type":"explain","q":"这句话是什么意思？","selection":"但在那时那地，我的意见却变化了","chapter":"c09","expect":"explain"},
+  {"id":"E03","type":"explain","q":"这是什么意思？","selection":"要原配，即本在一窠中者","chapter":"c07","expect":"explain"},
+  {"id":"E04","type":"explain","q":"","selection":"一见有喜","chapter":"c05","expect":"explain"},
+  {"id":"E05","type":"explain","q":"为什么这么说？","selection":"谋害隐鼠的怨恨，从此完全消灭了","chapter":"c02","expect":"explain","alt":["book_qa"]},
+
+  {"id":"S01","type":"summary","q":"总结一下这一篇","chapter":"c09","expect":"summary","expectChapter":"c09"},
+  {"id":"S02","type":"summary","q":"《五猖会》主要讲了什么？","chapter":"c06","expect":"summary","expectChapter":"c04"},
+  {"id":"S03","type":"summary","q":"帮我概括一下《范爱农》","chapter":null,"expect":"summary","expectChapter":"c10"},
+
+  {"id":"Q01","type":"quiz","q":"考考我","chapter":"c06","expect":"quiz","expectChapter":"c06"},
+  {"id":"Q02","type":"quiz","q":"给《藤野先生》出几道题","chapter":"c02","expect":"quiz","expectChapter":"c09"},
+
+  {"id":"O01","type":"off_topic","q":"帮我写一份周报","expect":"off_topic"},
+  {"id":"O02","type":"off_topic","q":"今天北京天气怎么样？","expect":"off_topic"}
+]

@@ -1,0 +1,1717 @@
+{
+ "generatedAt": "2026-11-18T10:37:53.370Z",
+ "model": "deepseek-chat",
+ "judgeModel": "deepseek-chat",
+ "caseCount": 36,
+ "qaCount": 24,
+ "durationSec": 70,
+ "configs": [
+  {
+   "key": "bare",
+   "name": "裸模型",
+   "desc": "不给原文，直接问大模型（模拟通用 AI 问答）",
+   "metrics": {
+    "fact": 0.7857142857142857,
+    "absent": 0.6,
+    "premise": 0.8,
+    "overall": 0.75,
+    "hallucination": 0.2916666666666667,
+    "latencyMs": 2197.5
+   }
+  },
+  {
+   "key": "v1",
+   "name": "Prompt v1",
+   "desc": "给检索到的原文，但没有引用/拒答/前提校验约束",
+   "metrics": {
+    "fact": 0.8214285714285714,
+    "absent": 1,
+    "premise": 1,
+    "overall": 0.8958333333333334,
+    "hallucination": 0.041666666666666664,
+    "latencyMs": 2031.375
+   }
+  },
+  {
+   "key": "v2",
+   "name": "书伴 v2",
+   "desc": "加引用约束、拒答、前提校验、逐字核验（检索仍是全书 top-8）",
+   "metrics": {
+    "fact": 0.75,
+    "absent": 0.9,
+    "premise": 1,
+    "overall": 0.8333333333333334,
+    "hallucination": 0,
+    "latencyMs": 2297.8333333333335
+   }
+  },
+  {
+   "key": "v3",
+   "name": "书伴 v3",
+   "desc": "v2 + 章节全文上下文 + 拒答前扩大范围复查",
+   "metrics": {
+    "fact": 1,
+    "absent": 1,
+    "premise": 1,
+    "overall": 1,
+    "hallucination": 0,
+    "latencyMs": 2605.2083333333335
+   }
+  }
+ ],
+ "v2Extra": {
+  "routeAccuracy": 1,
+  "citeTotal": 70,
+  "citeOk": 70,
+  "citeRel": 0,
+  "citeDrop": 0,
+  "citeVerifyRate": 1,
+  "goldHitRate": 1
+ },
+ "routeRows": [
+  {
+   "id": "F01",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "F02",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "F03",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "F04",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "F05",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "F06",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "F07",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "F08",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "F09",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "F10",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "F11",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "F12",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "F13",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "F14",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "A01",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "A02",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "A03",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "A04",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "A05",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "P01",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "P02",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "P03",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "P04",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "P05",
+   "expect": "book_qa",
+   "got": "book_qa",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "E01",
+   "expect": "explain",
+   "got": "explain",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "E02",
+   "expect": "explain",
+   "got": "explain",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "E03",
+   "expect": "explain",
+   "got": "explain",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "E04",
+   "expect": "explain",
+   "got": "explain",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "E05",
+   "expect": "explain",
+   "got": "explain",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "S01",
+   "expect": "summary",
+   "got": "summary",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "S02",
+   "expect": "summary",
+   "got": "summary",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "S03",
+   "expect": "summary",
+   "got": "summary",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "Q01",
+   "expect": "quiz",
+   "got": "quiz",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "Q02",
+   "expect": "quiz",
+   "got": "quiz",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "O01",
+   "expect": "off_topic",
+   "got": "off_topic",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  },
+  {
+   "id": "O02",
+   "expect": "off_topic",
+   "got": "off_topic",
+   "okIntent": true,
+   "okChapter": true,
+   "ok": true
+  }
+ ],
+ "details": [
+  {
+   "id": "F01",
+   "type": "fact",
+   "q": "隐鼠到底是怎么死的？",
+   "ref": "不是被猫吃的：隐鼠缘着长妈妈的腿要爬上去，被她一脚踏死了。",
+   "runs": {
+    "bare": {
+     "answer": "在《狗·猫·鼠》中，隐鼠并非被猫吃掉，而是被长妈妈不小心踩死。鲁迅起初误以为是猫所害，因此仇猫；后来得知真相，对猫的误会解除，但对长妈妈仍存不满。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出隐鼠是被长妈妈踩死而非猫所害，与原文和参考答案一致，无编造细节。"
+    },
+    "v1": {
+     "answer": "隐鼠并非被猫吃掉，而是缘着长妈妈的腿要爬上去时，被她一脚踏死了。长妈妈起初告诉“我”是猫吃去的，后来“我”偶然得知真相。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出隐鼠是被长妈妈一脚踏死，与原文和参考答案一致，无编造内容。"
+    },
+    "v2": {
+     "answer": "隐鼠并非被猫吃掉，而是缘着长妈妈的腿往上爬时，被她一脚踏死了[1]。起初长妈妈告诉“我”隐鼠是前一晚被猫吃去的，使“我”愤怒悲哀，决心与猫为敌[2]；许多天后“我”才偶然得知真相[1]。",
+     "premise_issue": null,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出隐鼠是被长妈妈一脚踏死，与参考答案一致，且补充细节均有原文支持。"
+    },
+    "v3": {
+     "answer": "隐鼠并非被猫吃掉，而是它缘着长妈妈的腿要爬上去，被长妈妈一脚踏死了。长妈妈起初告诉“我”隐鼠是昨晚被猫吃去了，许多天后“我”才偶然得知真相。",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「狗·猫·鼠」第17段",
+       "quote": "倒是它缘着长妈妈的腿要爬上去，被她一脚踏死了",
+       "status": "verified"
+      },
+      {
+       "label": "「狗·猫·鼠」第14段",
+       "quote": "隐鼠是昨天晚上被猫吃去了",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出隐鼠是被长妈妈一脚踏死，与参考答案和原文一致，无编造内容。"
+    }
+   }
+  },
+  {
+   "id": "F02",
+   "type": "fact",
+   "q": "长妈妈给“我”买来的《山海经》，她管它叫什么？",
+   "ref": "三哼经。",
+   "runs": {
+    "bare": {
+     "answer": "长妈妈管《山海经》叫“三哼经”。她并不识字，是把“山海经”听岔了，说成“三哼经”，却仍记着“我”心心念念想要，趁告假回家时买来送给“我”，令“我”对她产生新的敬意。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出长妈妈称《山海经》为“三哼经”，与原文和参考答案一致，补充细节也符合原文。"
+    },
+    "v1": {
+     "answer": "长妈妈管它叫“三哼经”。原文中她买回书后对“我”说：“哥儿，有画儿的‘三哼经’，我给你买来了！”",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出长妈妈称《山海经》为“三哼经”，并引用原文佐证，与参考答案一致。"
+    },
+    "v2": {
+     "answer": "书中没有提到长妈妈管那部《山海经》叫什么。原文只写她来问《山海经》是怎么一回事，以及“我”对她说了，并未记下她对书的称呼。",
+     "premise_issue": null,
+     "correct": 0,
+     "hallucination": false,
+     "reason": "原文明确写长妈妈称其为“三哼经”，回答却称书中没有提到，与原文和参考答案不符。"
+    },
+    "v3": {
+     "answer": "她管《山海经》叫“三哼经”，买回来时对“我”说：“哥儿，有画儿的‘三哼经’，我给你买来了！”[1]",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「阿长与《山海经》」第24段",
+       "quote": "有画儿的‘三哼经’，我给你买来了",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出长妈妈称《山海经》为“三哼经”，与原文和参考答案一致。"
+    }
+   }
+  },
+  {
+   "id": "F03",
+   "type": "fact",
+   "q": "百草园里有哪些让“我”着迷的东西？",
+   "ref": "碧绿的菜畦、石井栏、皂荚树、桑椹，鸣蝉、黄蜂、叫天子，油蛉、蟋蟀、蜈蚣、斑蝥，何首乌、覆盆子等。",
+   "runs": {
+    "bare": {
+     "answer": "百草园里有碧绿的菜畦、光滑的石井栏、高大的皂荚树、紫红的桑椹；鸣蝉、黄蜂、叫天子；还有泥墙根一带的油蛉、蟋蟀、蜈蚣、斑蝥，以及何首乌藤和木莲藤。冬天雪地可捕鸟，这些景物和趣事让“我”着迷。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确列举了原文中的景物，与参考答案一致，捕鸟也属原文内容，无错误信息。"
+    },
+    "v1": {
+     "answer": "百草园里有碧绿的菜畦、光滑的石井栏、高大的皂荚树、紫红的桑椹，鸣蝉、黄蜂、叫天子，泥墙根一带的油蛉、蟋蟀、蜈蚣、斑蝥，还有何首乌藤、木莲藤和覆盆子。冬天还可捕鸟，这些都给“我”带来无限趣味。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确列举了原文中的景物，与参考答案一致，捕鸟也确为原文内容，无错误信息。"
+    },
+    "v2": {
+     "answer": "园中有碧绿的菜畦、光滑的石井栏、高大的皂荚树、紫红的桑椹，鸣蝉长吟、黄蜂伏在菜花上、叫天子直窜云霄；泥墙根一带还有油蛉低唱、蟋蟀弹琴，翻开断砖能遇见蜈蚣和会喷烟雾的斑蝥，何首乌藤与木莲藤缠络，还有又酸又甜的覆盆子。[1]",
+     "premise_issue": null,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答完整列举了原文中百草园的景物与趣味，与参考答案一致且无错误信息。"
+    },
+    "v3": {
+     "answer": "百草园里有碧绿的菜畦、光滑的石井栏、高大的皂荚树、紫红的桑椹，还有鸣蝉、黄蜂、叫天子；泥墙根一带可听油蛉低唱、蟋蟀弹琴，翻开断砖能遇见蜈蚣和会喷烟雾的斑蝥，还有何首乌藤、木莲藤和覆盆子[1][2]。冬天雪后还能捕鸟[3]。",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「从百草园到三味书屋」第2段",
+       "quote": "不必说碧绿的菜畦，光滑的石井栏",
+       "status": "verified"
+      },
+      {
+       "label": "「从百草园到三味书屋」第2段",
+       "quote": "单是周围的短短的泥墙根一带，就有无限趣味",
+       "status": "verified"
+      },
+      {
+       "label": "「从百草园到三味书屋」第7段",
+       "quote": "冬天的百草园比较的无味；雪一下，可就两样了",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答完整列举了原文中的景物，与参考答案一致，冬天捕鸟也确为原文内容，无错误信息。"
+    }
+   }
+  },
+  {
+   "id": "F04",
+   "type": "fact",
+   "q": "美女蛇的故事是谁讲给“我”听的？",
+   "ref": "长妈妈。",
+   "runs": {
+    "bare": {
+     "answer": "美女蛇的故事是长妈妈（阿长）讲给“我”听的，出自《朝花夕拾》中的《从百草园到三味书屋》。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出是长妈妈（阿长）讲的故事，与原文和参考答案一致，无编造内容。"
+    },
+    "v1": {
+     "answer": "是长妈妈（阿长）讲给“我”听的。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出是长妈妈讲的故事，与原文和参考答案一致。"
+    },
+    "v2": {
+     "answer": "是长妈妈讲给“我”听的。[1]",
+     "premise_issue": null,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答正确指出是长妈妈讲的故事，与原文和参考答案一致。"
+    },
+    "v3": {
+     "answer": "是长妈妈讲给“我”听的。文中说长妈妈曾讲一个读书人在古庙遇美女蛇的故事，老和尚用飞蜈蚣治死了美女蛇。[1]",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「从百草园到三味书屋」第4段",
+       "quote": "长妈妈曾经讲给我一个故事听",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出是长妈妈讲的故事，与原文和参考答案一致，无编造内容。"
+    }
+   }
+  },
+  {
+   "id": "F05",
+   "type": "fact",
+   "q": "三味书屋的先生是个什么样的人？",
+   "ref": "高而瘦的老人，须发花白，戴大眼镜；是本城极方正、质朴、博学的人。",
+   "runs": {
+    "bare": {
+     "answer": "三味书屋的先生是一位方正、质朴、博学的老塾师。他教学认真，对学生要求严格，但和蔼可亲，不轻易体罚。他读书入神时摇头晃脑，显得迂腐可爱。鲁迅对他怀有敬意，笔端带有温情。",
+     "correct": 0.5,
+     "hallucination": false,
+     "reason": "回答抓住了方正、质朴、博学等要点，但遗漏了高瘦、须发花白、戴大眼镜等外貌细节，且补充了原文未直接支持的描述。"
+    },
+    "v1": {
+     "answer": "先生是渊博的宿儒，对学生最初严厉，后来渐渐好起来，不断加多读书和对课的字数。他读书入神时大声朗读，对学生做戏画画并不干涉，显得宽容；但不愿回答学生问的“怪哉”等事，只让学生读书，反映出传统教育中只重读书、不重好奇发问的特点。",
+     "correct": 0.5,
+     "hallucination": false,
+     "reason": "回答描述了先生严厉、宽容、不答怪哉等原文情节，但遗漏了参考答案要求的外貌（高瘦、须发花白、戴大眼镜）和“方正、质朴、博学”的核心评价。"
+    },
+    "v2": {
+     "answer": "书中写他起初对“我”很严厉，后来渐渐好起来，给我读的书加多、对课也从三言加到七言 [1]；他是“渊博的宿儒”，学生问不该问的事，他虽知道也不愿说 [2]；读书入神时自顾自大声朗读，学生便趁机做戏、画画 [3]。",
+     "premise_issue": null,
+     "correct": 0.5,
+     "hallucination": false,
+     "reason": "回答描述了先生严厉、博学、读书入神等侧面，但遗漏了参考答案要求的外貌（高瘦、须发花白、戴大眼镜）和“方正、质朴、博学”的核心评价，属大体对但有遗漏。"
+    },
+    "v3": {
+     "answer": "先生高而瘦，须发花白，戴大眼镜，是城中极方正、质朴、博学的人[1]。他最初几天严厉，后来好转，给学生加书加对课[2]；有戒尺和罚跪规则却不常用，只瞪眼大声道[3]。问“怪哉”时他不高兴，说“不知道”，其实是不愿说[4]。读书入神时仰头摇着拗过去[5]。",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「从百草园到三味书屋」第11段",
+       "quote": "他是本城中极方正，质朴，博学的人",
+       "status": "verified"
+      },
+      {
+       "label": "「从百草园到三味书屋」第16段",
+       "quote": "先生最初这几天对我很严厉，后来却好起来了",
+       "status": "verified"
+      },
+      {
+       "label": "「从百草园到三味书屋」第19段",
+       "quote": "他有一条戒尺，但是不常用",
+       "status": "verified"
+      },
+      {
+       "label": "「从百草园到三味书屋」第15段",
+       "quote": "所谓不知道者，乃是不愿意说",
+       "status": "verified"
+      },
+      {
+       "label": "「从百草园到三味书屋」第22段",
+       "quote": "将头仰起，摇着，向后面拗过去",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确概括了先生的外貌与方正质朴博学的评价，补充细节均符合原文。"
+    }
+   }
+  },
+  {
+   "id": "F06",
+   "type": "fact",
+   "q": "藤野先生是怎么帮“我”改讲义的？",
+   "ref": "讲义从头到末都用红笔添改过，补了脱漏的地方，连文法错误也一一订正，一直持续到他教完所担任的功课。",
+   "runs": {
+    "bare": {
+     "answer": "藤野先生每周收下“我”的讲义，用红笔从头到尾添改，连文法错误也一一订正，并增加脱漏内容；这样持续到“我”离开仙台。他严谨无私的关怀令“我”感激难忘。",
+     "correct": 0.5,
+     "hallucination": true,
+     "reason": "添改讲义内容大体正确，但结尾说持续到“我”离开仙台，原文是持续到教完他所担任的功课，属原文无法支持的细节。"
+    },
+    "v1": {
+     "answer": "藤野先生收下“我”抄的讲义后，第二三天便还回来，并说此后每星期要送给他看一回。“我”打开看时很吃惊：讲义从头到末都用红笔添改过，不但增加了许多脱漏的地方，连文法的错误也都一一订正，一直继续到教完他所担任的骨学、血管学、神经学。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答完整准确地复述了原文中藤野先生用红笔添改讲义、补脱漏、订正文法错误并持续到教完所任功课的内容，与参考答案一致。"
+    },
+    "v2": {
+     "answer": "藤野先生收下“我”抄的讲义后，两三天就还回来，并让“我”以后每星期送给他看一次。“我”打开发现，讲义从头到尾都用红笔添改过，补上了许多脱漏之处，连文法错误也逐一订正，这样一直持续到他所教的骨学、血管学、神经学教完。[1]",
+     "premise_issue": null,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答与原文和参考答案完全一致，准确描述了藤野先生用红笔添改讲义、补脱漏、订正文法错误并持续到教完所任功课的细节。"
+    },
+    "v3": {
+     "answer": "藤野先生收下“我”抄的讲义后，第二三天便还回来，并要“我”此后每星期送给他看一回。“我”打开时发现讲义已从头到尾用红笔添改过，不但补上许多脱漏之处，连文法的错误也一一订正，这样一直持续到他所任的骨学、血管学、神经学教完。[1][2]",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「藤野先生」第15段",
+       "quote": "都用红笔添改过了",
+       "status": "verified"
+      },
+      {
+       "label": "「藤野先生」第15段",
+       "quote": "这样一直继续到教完了他所担任的功课",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答与原文和参考答案完全一致，准确描述了藤野先生改讲义的方式和持续范围，无错误或编造内容。"
+    }
+   }
+  },
+  {
+   "id": "F07",
+   "type": "fact",
+   "q": "“我”为什么决定不再学医、离开仙台？",
+   "ref": "在课堂上看到时事片里中国人被当作侦探枪毙、围观的中国人麻木，日本同学欢呼，这让“我”的意见变化了，于是不再学医、离开仙台。",
+   "runs": {
+    "bare": {
+     "answer": "因为“看电影”事件：幻灯片里中国人被日军处死，围观同胞却麻木围观，日本学生欢呼“万岁”。这使“我”深感医学只能救治身体，无法唤醒精神，于是决定弃医从文，离开仙台。 ",
+     "correct": 0.5,
+     "hallucination": true,
+     "reason": "回答大体符合事件经过，但加入了原文未提及的“弃医从文”这一具体结论，属于原文无法支持的细节。"
+    },
+    "v1": {
+     "answer": "“我”决定不再学医、离开仙台，是因为在仙台医学专门学校期间，匿名信事件让“我”深感作为弱国子民的屈辱，而藤野先生虽关怀备至，却无法改变“我”对国民性的思考。加之“我”意识到医学并非救国之急务，遂决定弃医从文，以文艺改变国民精神。",
+     "correct": 0,
+     "hallucination": true,
+     "reason": "回答未提及看电影时事片中国人被枪毙及欢呼这一关键原因，反而编造匿名信事件和弃医从文等原文未支持的情节。"
+    },
+    "v2": {
+     "answer": "书中没有明确说明“我”决定不再学医、离开仙台的原因，只写到第二学年终结时“我”去告诉藤野先生将不学医学并离开仙台，藤野先生脸色悲哀却没有说话[1]。",
+     "premise_issue": null,
+     "correct": 0,
+     "hallucination": false,
+     "reason": "原文明确写了看枪毙中国人时事片后意见变化，回答称书中没有说明原因，答错。"
+    },
+    "v3": {
+     "answer": "因为看时事影片时，中国人被日军枪毙而围观的也是中国人，讲堂里的日本学生拍掌欢呼“万岁”，这声音在“我”听来特别刺耳，使“我”的意见发生了变化，于是决定不学医学、离开仙台。[1][2]",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「藤野先生」第31段",
+       "quote": "但在那时那地，我的意见却变化了。",
+       "status": "verified"
+      },
+      {
+       "label": "「藤野先生」第32段",
+       "quote": "我便去寻藤野先生，告诉他我将不学医学，并且离开这仙台。",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确复述了时事片中中国人被枪毙、围观者麻木、日本学生欢呼及意见变化，与原文和参考答案一致。"
+    }
+   }
+  },
+  {
+   "id": "F08",
+   "type": "fact",
+   "q": "藤野先生的照片现在挂在哪里？",
+   "ref": "挂在“我”北京寓居的东墙上，书桌对面。",
+   "runs": {
+    "bare": {
+     "answer": "在《藤野先生》结尾，鲁迅说藤野先生赠他的照片一直挂在北京寓所书桌对面的东墙上，夜间疲倦时抬头看见，能激励自己继续写作。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出照片挂在“我”北京寓居的东墙上、书桌对面，与原文和参考答案一致。"
+    },
+    "v1": {
+     "answer": "藤野先生的照片至今还挂在鲁迅北京寓居的东墙上，书桌对面。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答与原文和参考答案一致，准确指出照片挂在“我”北京寓居的东墙上、书桌对面。"
+    },
+    "v2": {
+     "answer": "照片至今仍挂在作者北京寓居的东墙上，正对着书桌 [1]。",
+     "premise_issue": null,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答与原文一致，准确指出照片挂在作者北京寓居东墙上、书桌对面。"
+    },
+    "v3": {
+     "answer": "藤野先生的照片至今还挂在作者北京寓居的东墙上，书桌对面。[1]",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「藤野先生」第38段",
+       "quote": "只有他的照相至今还挂在我北京寓居的东墙上，书桌对面。",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答与原文及参考答案完全一致，准确指出照片挂在作者北京寓居东墙上、书桌对面。"
+    }
+   }
+  },
+  {
+   "id": "F09",
+   "type": "fact",
+   "q": "名医开的药引里，蟋蟀有什么特别的要求？",
+   "ref": "要“原配”，即本在一窠中的一对。",
+   "runs": {
+    "bare": {
+     "answer": "《父亲的病》中名医开的药引要求蟋蟀“一对”，且必须“原配”，即一雌一雄成对捉来，不能随意凑合。这体现了庸医故弄玄虚、刁难病家的荒唐。 ",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出蟋蟀需“一对”且“原配”，与原文及参考答案一致，无编造情节。"
+    },
+    "v1": {
+     "answer": "药引要求“蟋蟀一对”，旁注小字：“要原配，即本在一窠中者。”鲁迅讽刺道，似乎昆虫也要贞节，续弦或再醮便丧失做药资格。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出蟋蟀药引要求“原配，即本在一窠中者”，与参考答案一致且无编造内容。"
+    },
+    "v2": {
+     "answer": "药引中的蟋蟀要求「原配」，即一对蟋蟀必须原本同在一窠中，旁注小字特别说明；若是续弦或再醮的就不合格。[1]",
+     "premise_issue": null,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出蟋蟀须“原配”即本在一窠中者，与参考答案一致且无编造。"
+    },
+    "v3": {
+     "answer": "陈莲河开的药引中，蟋蟀要「一对」，且须是原配，即本来就在同一个窠里的；续弦或再嫁的便不能入药。[1]",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「父亲的病」第7段",
+       "quote": "「要原配，即本在一窠中者。」",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出蟋蟀要一对且须原配（本在一窠中），与原文和参考答案一致。"
+    }
+   }
+  },
+  {
+   "id": "F10",
+   "type": "fact",
+   "q": "去看五猖会之前，父亲要“我”先做什么？",
+   "ref": "把《鉴略》读熟、背出来，背不出就不准去。",
+   "runs": {
+    "bare": {
+     "answer": "父亲要“我”先背熟《鉴略》，背不出就不准去看五猖会。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出父亲要求先背熟《鉴略》，背不出不准去，与参考答案一致。"
+    },
+    "v1": {
+     "answer": "父亲要“我”先背诵《鉴略》才能去看五猖会，这让“我”感到扫兴，至今仍诧异父亲为何在那时叫“我”背书。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出父亲要求先背《鉴略》才能去看五猖会，与参考答案一致，且无编造细节。"
+    },
+    "v2": {
+     "answer": "父亲要“我”先背《鉴略》才能去看会。文中说“我”七岁开蒙读的就是《鉴略》，被要求强记二三十行；后来别的都忘了，只有背诵这一段还记得分明。[1][2][3]",
+     "premise_issue": null,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出父亲要求先背《鉴略》才能去看五猖会，与参考答案一致，且引用的细节均符合原文。"
+    },
+    "v3": {
+     "answer": "父亲要“我”先拿《鉴略》来读熟、背出来，背不出就不准去看会。[1][2]“我”忐忑地一句句读，强记着要背出来。[3]",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「五猖会」第11段",
+       "quote": "给我读熟。背不出，就不准去看会。",
+       "status": "verified"
+      },
+      {
+       "label": "「五猖会」第8段",
+       "quote": "是指我开蒙时候所读的《鉴略》",
+       "status": "verified"
+      },
+      {
+       "label": "「五猖会」第13段",
+       "quote": "自然是读着，读着，强记着",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出父亲要求先读熟、背出《鉴略》，背不出不准去看会，与参考答案一致且无编造内容。"
+    }
+   }
+  },
+  {
+   "id": "F11",
+   "type": "fact",
+   "q": "范爱农最后是怎么死的？",
+   "ref": "坐船看戏时落水淹死，尸体在菱荡里找到；“我”至今不明白他是失足还是自杀。",
+   "runs": {
+    "bare": {
+     "answer": "范爱农最后是溺水而死的。鲁迅在《范爱农》一文中提到，他因失业后生活困顿、心情苦闷，一次酒后坐船时落水身亡，死因带有意外色彩，鲁迅对此深感悲愤与惋惜。",
+     "correct": 0.5,
+     "hallucination": false,
+     "reason": "回答提到溺水身亡且酒后坐船落水，大体正确，但遗漏了菱荡找到尸体及鲁迅不明白是失足还是自杀的关键细节，且'失业后生活困顿、心情苦闷'属原文背景但非死因直接描述，略有偏差。"
+    },
+    "v1": {
+     "answer": "原文段落未提及范爱农的死因，只写到绍兴光复后他戴毡帽上城、笑容前所未见。关于他的结局，需查阅《范爱农》后文，此处无法回答。",
+     "correct": 0,
+     "hallucination": false,
+     "reason": "回答称原文未提及死因并拒绝回答，但原文明确写了落水淹死及失足或自杀的疑问，属答非所问。"
+    },
+    "v2": {
+     "answer": "书中没有提到范爱农是怎么死的。",
+     "premise_issue": null,
+     "correct": 0,
+     "hallucination": false,
+     "reason": "书中明确写了范爱农落水淹死，回答称书中没有提到，属答错。"
+    },
+    "v3": {
+     "answer": "范爱农是落水淹死的。他醉着在大风雨夜偏要到船舷小解，不听劝阻掉了下去，虽能浮水却再没起来；第二天在菱荡里打捞到尸体，直立着。叙述者说不明白他究竟是失足还是自杀，并疑心是自杀，因为他是浮水的好手。[51][52][53][47]",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「范爱农」第51段",
+       "quote": "他掉下去了，虽然能浮水，却从此不起来",
+       "status": "verified"
+      },
+      {
+       "label": "「范爱农」第52段",
+       "quote": "第二天打捞尸体，是在菱荡里找到的，直立着",
+       "status": "verified"
+      },
+      {
+       "label": "「范爱农」第53段",
+       "quote": "我至今不明白他究竟是失足还是自杀",
+       "status": "verified"
+      },
+      {
+       "label": "「范爱农」第47段",
+       "quote": "因为他是浮水的好手，不容易淹死的",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答与原文一致，准确描述了落水淹死、菱荡找到尸体及失足或自杀的疑问，未编造情节。"
+    }
+   }
+  },
+  {
+   "id": "F12",
+   "type": "fact",
+   "q": "《二十四孝图》里最让“我”反感的是哪两个故事？",
+   "ref": "“老莱娱亲”和“郭巨埋儿”。",
+   "runs": {
+    "bare": {
+     "answer": "最让“我”反感的是“老莱娱亲”和“郭巨埋儿”。前者让“我”觉得虚伪做作，后者则让“我”感到恐惧，担心自己会被父亲埋掉。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出“老莱娱亲”和“郭巨埋儿”，与原文及参考答案一致，补充的感受也符合原文语境。"
+    },
+    "v1": {
+     "answer": "“老莱娱亲”和“郭巨埋儿”两件事最让“我”不解甚至反感。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出“老莱娱亲”和“郭巨埋儿”，与原文及参考答案一致。"
+    },
+    "v2": {
+     "answer": "最让“我”不解甚至反感的是“老莱娱亲”和“郭巨埋儿”两件事[1]；其中老莱子故事里招“我”反感的具体是“诈跌”这一情节[2]。",
+     "premise_issue": null,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出“老莱娱亲”和“郭巨埋儿”，与原文及参考答案一致，补充的“诈跌”情节也符合原著。"
+    },
+    "v3": {
+     "answer": "最让“我”不解甚至反感的是“老莱娱亲”和“郭巨埋儿”两件事[1]。老莱子一事中，“我”反感的是“诈跌”的虚伪[2]；郭巨埋儿则让“我”替那孩子捏一把汗，并害怕父亲学郭巨把自己埋掉[3]。",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「二十四孝图」第13段",
+       "quote": "最使我不解，甚至于发生反感的，是“老莱娱亲”和“郭巨埋儿”两件事。",
+       "status": "verified"
+      },
+      {
+       "label": "「二十四孝图」第15段",
+       "quote": "而招我反感的便是“诈跌”",
+       "status": "verified"
+      },
+      {
+       "label": "「二十四孝图」第18段",
+       "quote": "我最初实在替这孩子捏一把汗",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确指出“老莱娱亲”和“郭巨埋儿”，与原文及参考答案一致，补充细节也符合原著。"
+    }
+   }
+  },
+  {
+   "id": "F13",
+   "type": "fact",
+   "q": "衍太太怂恿“我”做什么？",
+   "ref": "拿母亲的钱用，或者把首饰找出来去变卖。",
+   "runs": {
+    "bare": {
+     "answer": "衍太太怂恿“我”偷拿母亲的首饰变卖，还教唆“我”做坏事，如冬天吃冰、打旋子等，表现出她虚伪、阴险、爱搬弄是非的性格。",
+     "correct": 0.5,
+     "hallucination": true,
+     "reason": "回答提到首饰变卖但遗漏拿母亲的钱，且加入原文未支持的冬天吃冰、打旋子等情节，属幻觉。"
+    },
+    "v1": {
+     "answer": "衍太太怂恿“我”拿母亲的钱用，或拿首饰去变卖，还教“我”到大厨抽屉角落寻找珠子之类东西。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答与参考答案一致，准确复述了衍太太怂恿拿母亲的钱或变卖首饰的情节，且补充的寻找珠子细节有原文依据。"
+    },
+    "v2": {
+     "answer": "衍太太怂恿“我”拿母亲的钱来用，还说若母亲没钱，可以拿首饰去变卖；又说大厨抽屉角角落落里总寻得出珠子这类东西。[1][2]",
+     "premise_issue": null,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确复述了衍太太怂恿拿母亲的钱和首饰变卖的情节，与参考答案和原文一致。"
+    },
+    "v3": {
+     "answer": "衍太太怂恿“我”拿母亲的钱来用，还说可以去大厨抽屉角角落落寻珠子之类的东西变卖。[6]后来“我”听到流言说已偷了家里东西去变卖。[7]",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「琐记」第6段",
+       "quote": "母亲的钱，你拿来用就是了，还不就是你的么？",
+       "status": "verified"
+      },
+      {
+       "label": "「琐记」第7段",
+       "quote": "说我已经偷了家里的东西去变卖了",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答准确复述了衍太太怂恿拿母亲的钱和找首饰变卖，补充的流言细节也符合原文。"
+    }
+   }
+  },
+  {
+   "id": "F14",
+   "type": "fact",
+   "q": "百草园后来怎么样了？",
+   "ref": "早已连同屋子一起卖给了朱文公的子孙。",
+   "runs": {
+    "bare": {
+     "answer": "百草园后来被卖给了朱文公的子孙，作者长大后重游，只见一片荒凉，杂草丛生，已非童年时的乐园。",
+     "correct": 0.5,
+     "hallucination": true,
+     "reason": "卖给了朱文公的子孙正确，但“作者长大后重游，只见一片荒凉”是原文没有的情节，属于编造。"
+    },
+    "v1": {
+     "answer": "百草园后来连同屋子一起卖给了朱文公的子孙，作者最后一次相见已隔七八年，园中似乎确凿只有一些野草。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答与原文一致，准确说明百草园连同屋子卖给朱文公子孙，并补充末次相见隔七八年、只有野草，无错误信息。"
+    },
+    "v2": {
+     "answer": "百草园连同屋子一起早已卖给了朱文公的子孙，作者最后一次见到它也已隔了七八年，园中似乎确凿只有一些野草。[1]",
+     "premise_issue": null,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答与原文一致，准确说明百草园已连同屋子卖给朱文公的子孙，无错误信息。"
+    },
+    "v3": {
+     "answer": "百草园连同屋子一起早已卖给了朱文公的子孙，作者最后一次见到它也已隔了七八年，园中似乎确凿只有一些野草。[1]",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「从百草园到三味书屋」第1段",
+       "quote": "现在是早已并屋子一起卖给朱文公的子孙了",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答与原文一致，准确说明百草园连同屋子卖给朱文公子孙，并提及末次相见隔七八年、只有野草，无错误信息。"
+    }
+   }
+  },
+  {
+   "id": "A01",
+   "type": "absent",
+   "q": "藤野先生的生日是哪天？",
+   "ref": "书中没有提到。",
+   "runs": {
+    "bare": {
+     "answer": "《朝花夕拾》中未记载藤野先生的具体生日。鲁迅只写他是仙台医学专门学校的解剖学教师，未提出生日期。藤野先生本名藤野严九郎，其生日需查外部资料，原文无此信息。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出书中未记载藤野先生的生日，并说明需查外部资料，符合absent类型要求。"
+    },
+    "v1": {
+     "answer": "文中未提及藤野先生的生日，无法从原文得知。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确说明书中未提及藤野先生的生日，符合absent类型要求。"
+    },
+    "v2": {
+     "answer": "书中没有提到藤野先生的生日。",
+     "premise_issue": null,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确说明书中没有提到藤野先生的生日，符合absent类型要求。"
+    },
+    "v3": {
+     "answer": "书中没有提到藤野先生的生日。",
+     "premise_issue": null,
+     "citations": [],
+     "recheck": true,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确说明书中没有提到藤野先生的生日，符合absent类型要求。"
+    }
+   }
+  },
+  {
+   "id": "A02",
+   "type": "absent",
+   "q": "三味书屋的先生叫什么名字？",
+   "ref": "书中没有写先生的名字，只描写了他的样貌和为人。",
+   "runs": {
+    "bare": {
+     "answer": "三味书屋的先生姓寿，名镜吾，是鲁迅少年时代的塾师，在《从百草园到三味书屋》中被称为“寿镜吾先生”。",
+     "correct": 0,
+     "hallucination": true,
+     "reason": "书中未写先生姓名，回答编造了“寿镜吾”这一具体姓名，属于幻觉。"
+    },
+    "v1": {
+     "answer": "文中未提及三味书屋先生的具体名字，只称“我的先生”，并描述书房挂“三味书屋”匾、画梅花鹿，学生对着匾和鹿行礼，第一次拜孔子，第二次拜先生。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出书中未提及先生名字，符合absent类型要求，且未编造具体姓名。"
+    },
+    "v2": {
+     "answer": "书中没有提到三味书屋先生的名字，只写他家的位置和书房陈设，以及行礼的情形。[1]",
+     "premise_issue": null,
+     "correct": 0.5,
+     "hallucination": false,
+     "reason": "正确指出书中未写先生名字，但遗漏了原文对先生样貌和为人（高瘦、须发花白、方正博学）的描写，且'只写他家的位置和书房陈设'表述不准确。"
+    },
+    "v3": {
+     "answer": "书中没有提到三味书屋先生的名字，只写他是一位高而瘦、须发花白、戴大眼镜的老人，被称为\"我的先生\"。",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「从百草园到三味书屋」第10段",
+       "quote": "便是我的先生的家了",
+       "status": "verified"
+      },
+      {
+       "label": "「从百草园到三味书屋」第11段",
+       "quote": "他是一个高而瘦的老人，须发都花白了，还戴着大眼镜",
+       "status": "verified"
+      }
+     ],
+     "recheck": true,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出书中未提先生名字，并正确描述其样貌，书外补充已标注且不构成幻觉。"
+    }
+   }
+  },
+  {
+   "id": "A03",
+   "type": "absent",
+   "q": "范爱农的女儿后来在哪里工作？",
+   "ref": "书中没有提到；作者只说不知道她的景况。",
+   "runs": {
+    "bare": {
+     "answer": "《朝花夕拾》中未提及范爱农女儿后来的工作。文中只写到范爱农死后留下幼女，鲁迅对其境况表示关切，并无后续记载。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出书中未提及女儿后来的工作，与参考答案一致且无编造。"
+    },
+    "v1": {
+     "answer": "原文未提及范爱农女儿的工作情况。第55段只说鲁迅不知她景况如何，推测若在上学，中学该毕业了，并无工作信息。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出原文未提及女儿工作，符合absent类型要求，无编造。"
+    },
+    "v2": {
+     "answer": "书中没有提到范爱农女儿后来在哪里工作。原文只写到作者挂念她，若在上学，中学该毕业了，并未提及她的工作去向。",
+     "premise_issue": null,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出书中没有提到女儿的工作去向，与参考答案一致，且未编造情节。"
+    },
+    "v3": {
+     "answer": "书中没有提到范爱农女儿后来在哪里工作。结尾只说他死后遗下一个幼女和夫人，作者挂念她景况如何、若在上学中学该毕业了。",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「范爱农」第54段",
+       "quote": "遗下一个幼女和他的夫人",
+       "status": "verified"
+      },
+      {
+       "label": "「范爱农」第55段",
+       "quote": "现在不知他唯一的女儿景况如何？",
+       "status": "verified"
+      }
+     ],
+     "recheck": true,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出书中没有提到女儿的工作，并准确引用原文作者不知其景况的表述，符合absent类型要求。"
+    }
+   }
+  },
+  {
+   "id": "A04",
+   "type": "absent",
+   "q": "长妈妈的真实姓名是什么？",
+   "ref": "书中没有给出，作者说自己终于不知道她的姓名。",
+   "runs": {
+    "bare": {
+     "answer": "长妈妈的真实姓名在《朝花夕拾》中并未明确记载，鲁迅只称她为“长妈妈”或“阿长”。她是鲁迅儿时的保姆，其姓名、经历在文中没有详细交代，因此真实姓名不详。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出书中未给出长妈妈真实姓名，与参考答案一致，无编造内容。"
+    },
+    "v1": {
+     "answer": "鲁迅在文中明确说“我终于不知道她的姓名”，只知她有个过继的儿子，大约是青年守寡的孤孀。“长妈妈”“阿长”都不是她的真名，而是沿用前一个女工的称呼。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出书中未给出长妈妈真实姓名，与原文和参考答案一致。"
+    },
+    "v2": {
+     "answer": "书中没有提到长妈妈的真实姓名。作者只说她说过自己叫“什么姑娘”，但后来已忘却，也始终不知道她姓什么 [1]；到写文章时仍“终于不知道她的姓名” [2]。",
+     "premise_issue": null,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出书中没有给出长妈妈的真实姓名，与参考答案一致，且引用的细节有原文支持。"
+    },
+    "v3": {
+     "answer": "书中没有提到她的真实姓名。文中说她曾自称名字是“什么姑娘”，但“我”已忘却，只知不是“长姑娘”，也始终不知道她姓什么；最后作者也感叹终于不知道她的姓名。[1][2]",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「阿长与《山海经》」第2段",
+       "quote": "也终于不知道她姓什么",
+       "status": "verified"
+      },
+      {
+       "label": "「阿长与《山海经》」第30段",
+       "quote": "我终于不知道她的姓名，她的经历",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出书中没有给出长妈妈的真实姓名，与参考答案一致，且引用的细节均符合原文。"
+    }
+   }
+  },
+  {
+   "id": "A05",
+   "type": "absent",
+   "q": "迎神赛会上扮演无常的人叫什么名字？",
+   "ref": "书中没有提到。",
+   "runs": {
+    "bare": {
+     "answer": "在《朝花夕拾·无常》中，迎神赛会上扮演无常的人叫“阿领”，是乡下人，并非真名，文中称他“阿领”。",
+     "correct": 0,
+     "hallucination": true,
+     "reason": "书中没有提到扮演无常者的名字，回答编造了“阿领”这一具体名字，属于幻觉。"
+    },
+    "v1": {
+     "answer": "原文未提及扮演无常者的具体名字，只说鬼物们“大概都是由粗人和乡下人扮演的”。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答正确指出书中未提及扮演无常者的名字，并引用原文说明只提到由粗人和乡下人扮演，符合absent类型要求。"
+    },
+    "v2": {
+     "answer": "书中没有提到扮演无常的人叫什么名字。原文只说这些鬼物大概由粗人和乡下人扮演，并未记下具体姓名。[1]",
+     "premise_issue": null,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "明确说明书中未提到扮演无常者的姓名，符合absent类型要求，且未编造具体名字。"
+    },
+    "v3": {
+     "answer": "书中没有提到扮演无常的人叫什么名字，只说明鬼物们大概由粗人和乡下人扮演，并未给出具体姓名。",
+     "premise_issue": null,
+     "citations": [
+      {
+       "label": "「无常」第2段",
+       "quote": "这些鬼物们，大概都是由粗人和乡下人扮演的。",
+       "status": "verified"
+      }
+     ],
+     "recheck": true,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出书中没有提到扮演无常者的名字，符合absent类型要求。"
+    }
+   }
+  },
+  {
+   "id": "P01",
+   "type": "premise",
+   "q": "长妈妈为什么要故意害死隐鼠？",
+   "ref": "前提有误：书中并没有说长妈妈故意害死隐鼠，是隐鼠缘着她的腿爬上去，被她一脚踏死。",
+   "runs": {
+    "bare": {
+     "answer": "长妈妈并非故意害死隐鼠。鲁迅在《狗·猫·鼠》中写隐鼠之死，起初误以为是长妈妈所害，后来才知是猫吃掉的。这误会表现了他对长妈妈的不满与后来的愧疚，也讽刺了当时对猫的厌恶。",
+     "correct": 0,
+     "hallucination": true,
+     "reason": "回答虽指出并非故意，但错误称后来才知是猫吃掉，与原文隐鼠被长妈妈踏死相反，且编造愧疚讽刺等情节。"
+    },
+    "v1": {
+     "answer": "原文并未说明长妈妈是“故意”害死隐鼠。文中写隐鼠“缘着长妈妈的腿要爬上去，被她一脚踏死了”，属于无意踩死，并非蓄意加害。鲁迅得知真相后憎恶她，才叫她“阿长”。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出前提有误，并引用原文说明隐鼠是被长妈妈无意踏死，纠正了“故意害死”的错误前提。"
+    },
+    "v2": {
+     "answer": "书中没有提到长妈妈“故意”害死隐鼠。原文只说隐鼠是缘着长妈妈的腿要爬上去，被她一脚踏死，并非有意加害[1]；此前她告诉“我”隐鼠被猫吃去，后来“我”才得知真相[2]。",
+     "premise_issue": "原文并未说长妈妈故意害死隐鼠，只说隐鼠爬她的腿时被她一脚踏死。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出前提有误，并按原文纠正为隐鼠爬腿时被一脚踏死，非故意加害。"
+    },
+    "v3": {
+     "answer": "书中没有说长妈妈是故意害死隐鼠的。原文写的是隐鼠缘着长妈妈的腿要爬上去，被她一脚踏死了[1]；此前她告诉“我”隐鼠被猫吃去，后来“我”才偶然得知真相[2]。",
+     "premise_issue": "原文并未说长妈妈故意害死隐鼠，而是她一脚踏死了爬上她腿的隐鼠。",
+     "citations": [
+      {
+       "label": "「狗·猫·鼠」第17段",
+       "quote": "倒是它缘着长妈妈的腿要爬上去，被她一脚踏死了",
+       "status": "verified"
+      },
+      {
+       "label": "「狗·猫·鼠」第14段",
+       "quote": "隐鼠是昨天晚上被猫吃去了",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出前提有误，并按原文纠正为隐鼠爬上长妈妈的腿被她一脚踏死，与参考答案一致。"
+    }
+   }
+  },
+  {
+   "id": "P02",
+   "type": "premise",
+   "q": "藤野先生为什么要给鲁迅发奖学金？",
+   "ref": "前提有误：书中没有藤野先生发奖学金的情节；他做的是帮“我”添改讲义、关心解剖实习等。",
+   "runs": {
+    "bare": {
+     "answer": "藤野先生并未给鲁迅发奖学金。他作为鲁迅在仙台医专的解剖学教师，因关心弱国留学生，主动为鲁迅添改讲义、纠正解剖图，并在鲁迅决定弃医从文时赠照片留念。这些体现的是师生情谊，与奖学金无关。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出前提错误，说明书中无发奖学金情节，并纠正为添改讲义等实际情节，与参考答案一致。"
+    },
+    "v1": {
+     "answer": "原文中并无藤野先生给鲁迅发奖学金的记载。相关段落提到的是：同学匿名信诬陷鲁迅因藤野先生在讲义上做记号而预先知道解剖学试题才取得好成绩，鲁迅与同学诘责干事，最终流言消灭。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出书中没有发奖学金的情节，并纠正为讲义记号与匿名信事件，符合前提有误的判定。"
+    },
+    "v2": {
+     "answer": "书中没有提到藤野先生给鲁迅发奖学金这回事。原文只写到学年试验后鲁迅成绩在中间、没有落第，以及藤野先生担任解剖实习和局部解剖学课程 [1]；另有匿名信流言称藤野先生在讲义上做记号、使鲁迅预先知道题目，但这是流言，并非奖学金 [2]。",
+     "premise_issue": "原文没有藤野先生给鲁迅发奖学金的情节，问题前提与原文不符。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出前提有误，书中无发奖学金情节，并纠正为添改讲义、匿名信流言等原文内容，符合参考答案。"
+    },
+    "v3": {
+     "answer": "书中没有提到藤野先生给鲁迅发奖学金。原文只写鲁迅到仙台后学校不收学费、几个职员为他的食宿操心[1]，以及藤野先生用红笔添改他的讲义[2]，并无发放奖学金的情节。",
+     "premise_issue": "原文没有藤野先生给鲁迅发奖学金的情节，只提到学校不收学费、职员关心食宿。",
+     "citations": [
+      {
+       "label": "「藤野先生」第5段",
+       "quote": "不但学校不收学费，几个职员还为我的食宿操心",
+       "status": "verified"
+      },
+      {
+       "label": "「藤野先生」第15段",
+       "quote": "都用红笔添改过了",
+       "status": "verified"
+      }
+     ],
+     "recheck": true,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出前提有误，说明书中无发奖学金情节，并纠正为添改讲义等原文内容。"
+    }
+   }
+  },
+  {
+   "id": "P03",
+   "type": "premise",
+   "q": "三味书屋的先生为什么经常用戒尺打学生？",
+   "ref": "前提有误：书中说先生有一条戒尺，但不常用，普通总不过瞪几眼。",
+   "runs": {
+    "bare": {
+     "answer": "三味书屋的先生并非经常打学生。文中写他备有戒尺和罚跪规则，但“不常用”，通常只瞪眼、大声斥责。这反映旧式私塾的严厉规矩，也体现先生方正、质朴、博学的一面，鲁迅对他怀有敬意。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出前提有误，并引用原文'不常用'纠正，与参考答案一致。"
+    },
+    "v1": {
+     "answer": "原文并未说先生“经常”用戒尺打学生。第19段明确写道：他有一条戒尺，但是不常用；也有罚跪的规则，但也不常用，普通总不过瞪几眼、大声道。可见先生虽有戒尺，却很少真正使用，并非经常打学生。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出问题前提有误，并引用原文纠正先生戒尺不常用，与参考答案一致。"
+    },
+    "v2": {
+     "answer": "书中没有提到先生经常用戒尺打学生。原文说先生有戒尺但“不常用”，罚跪规则也“不常用”，平时多半只是瞪几眼、大声说话。[1]",
+     "premise_issue": "原文说戒尺“不常用”，并非经常用来打学生。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出问题前提有误，并引用原文'不常用'纠正，与参考答案一致。"
+    },
+    "v3": {
+     "answer": "书中没有提到先生经常用戒尺打学生。原文说先生有戒尺但\"不常用\"，罚跪的规则也\"不常用\"，平时不过瞪几眼、大声说话[1]。",
+     "premise_issue": "原文说戒尺\"不常用\"，并非经常打学生。",
+     "citations": [
+      {
+       "label": "「从百草园到三味书屋」第19段",
+       "quote": "他有一条戒尺，但是不常用",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出问题前提有误，并引用原文说明戒尺不常用，与参考答案一致。"
+    }
+   }
+  },
+  {
+   "id": "P04",
+   "type": "premise",
+   "q": "父亲为什么最后没让“我”去看五猖会？",
+   "ref": "前提有误：“我”背出《鉴略》后，父亲同意了，“我”去了五猖会（只是已没有先前那么高兴）。",
+   "runs": {
+    "bare": {
+     "answer": "父亲并非不让“我”去看五猖会，而是临行前强迫“我”背《鉴略》，背不出就不许去。这体现了封建家长制对儿童天性的压制，让“我”兴味索然。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出前提有误，纠正为父亲在背出后同意去五猖会，符合原文。"
+    },
+    "v1": {
+     "answer": "父亲并没有不让“我”去，而是临出发前强迫“我”背诵《鉴略》，背完才放行。但经此折腾，“我”已兴致全无，看会时也不觉得有意思。鲁迅结尾诧异父亲为何偏在那时叫“我”背书，批判封建教育对儿童天性的压制。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出前提有误，并依据原文纠正为背完《鉴略》后父亲同意去五猖会，符合 premise 类型要求。"
+    },
+    "v2": {
+     "answer": "书中没有提到父亲最后不让“我”去看五猖会。原文只写父亲在开船前叫“我”背书，背完便一同开船出发，路上“我”已没了兴致，并未说取消看会。[1][2]",
+     "premise_issue": "原文中父亲并未阻止“我”去看会，只是临行前叫“我”背书，之后照常开船前往。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出前提有误，并依据原文说明父亲在背完书后同意前往，与参考答案一致。"
+    },
+    "v3": {
+     "answer": "父亲最后让“我”去了。他让“我”背熟《鉴略》后，听“我”一气背完，便点头说“不错。去罢”，大家才动身往河埠走。[1][2]",
+     "premise_issue": "原文中父亲并未最终阻止“我”去看会，背完书后他就放行了。",
+     "citations": [
+      {
+       "label": "「五猖会」第11段",
+       "quote": "背不出，就不准去看会。",
+       "status": "verified"
+      },
+      {
+       "label": "「五猖会」第18段",
+       "quote": "“不错。去罢。”父亲点着头，说。",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出前提有误，并依据原文纠正为背完书后父亲同意去看会，与参考答案一致。"
+    }
+   }
+  },
+  {
+   "id": "P05",
+   "type": "premise",
+   "q": "范爱农为什么当上了绍兴知府？",
+   "ref": "前提有误：书中范爱农做的是师范学校的监学，不是知府。",
+   "runs": {
+    "bare": {
+     "answer": "范爱农并未当上绍兴知府。在《范爱农》一文中，他留学日本归来后因没有门路而受到排斥，只能寄居在乡下，靠教几个学生糊口，后来在绍兴光复后做过监学，不久被排挤去职，最终溺水身亡。他一生穷困潦倒，从未担任过知府一职。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出前提错误，纠正为监学而非知府，与原文一致。"
+    },
+    "v1": {
+     "answer": "原文中并未提到范爱农当上绍兴知府。文中只说他曾在绍兴光复后做过学监，后来被校长设法去掉，又成了革命前的爱农，最终困穷漂泊、溺水而死。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出原文未提范爱农当知府，并纠正其实际做的是监学，符合前提错误类型要求。"
+    },
+    "v2": {
+     "answer": "书中没有提到范爱农当上绍兴知府。原文只写绍兴光复后第二天他上城来，戴着毡帽、笑容前所未见 [1]；后来他的学监职务被校长设法去掉 [2]。",
+     "premise_issue": "原文没有说范爱农当上绍兴知府，只写他做过学监，且后来被去掉。",
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出前提有误，并纠正为范爱农做的是学监而非知府，与参考答案一致。"
+    },
+    "v3": {
+     "answer": "书中没有提到范爱农当绍兴知府。原文只说他做过师范学校的监学，后来学监被去掉[1]；绍兴光复后军政府由旧乡绅组织，并未提及范爱农任知府[2]。",
+     "premise_issue": "原文中范爱农从未当绍兴知府，他只做过师范学校监学。",
+     "citations": [
+      {
+       "label": "「范爱农」第30段",
+       "quote": "爱农做监学，还是那件布袍子",
+       "status": "verified"
+      },
+      {
+       "label": "「范爱农」第29段",
+       "quote": "还是几个旧乡绅所组织的军政府",
+       "status": "verified"
+      }
+     ],
+     "recheck": false,
+     "correct": 1,
+     "hallucination": false,
+     "reason": "回答明确指出前提错误，并依据原文纠正范爱农只做过师范学校监学，未编造情节。"
+    }
+   }
+  }
+ ],
+ "skillRows": [
+  {
+   "id": "E01",
+   "type": "explain",
+   "q": "（划线）三哼经",
+   "selection": "三哼经",
+   "intent": "explain",
+   "answer": "这是阿长把《山海经》念错的口语记音，她不知书名，只按听来的音说成“三哼经”。作者这样写，既显出她不识字，又突出她记挂孩子心愿、特意买书的可敬。[1]",
+   "points": [],
+   "quiz": [],
+   "outside": "《山海经》是先秦古籍，含神话地理异闻，多记人面兽、九头蛇等怪诞图像，故儿童爱看有画本。鲁迅用错音记实，是白描手法，不讥笑而含温情。",
+   "verification": {
+    "total": 1,
+    "verified": 1,
+    "relocated": 0,
+    "dropped": 0,
+    "copyFlag": false
+   }
+  },
+  {
+   "id": "E02",
+   "type": "explain",
+   "q": "这句话是什么意思？",
+   "selection": "但在那时那地，我的意见却变化了",
+   "intent": "explain",
+   "answer": "指仙台看幻灯片时，日本学生为枪毙中国人欢呼，深深刺痛了鲁迅，使他放弃医学救国的想法，转而认为救治精神比医治身体更要紧，于是决定弃医从文。作者用这句短句收束转折，含蓄写出思想剧变。",
+   "points": [],
+   "quiz": [],
+   "outside": "“意见”在清末民初白话中常指主张、志向，非今日“看法”之意。此段背景是日俄战争期间，日本课堂放映枪毙替俄军做侦探的中国人幻灯片，围观同胞麻木，刺激鲁迅弃医从文。",
+   "verification": {
+    "total": 1,
+    "verified": 1,
+    "relocated": 0,
+    "dropped": 0,
+    "copyFlag": false
+   }
+  },
+  {
+   "id": "E03",
+   "type": "explain",
+   "q": "这是什么意思？",
+   "selection": "要原配，即本在一窠中者",
+   "intent": "explain",
+   "answer": "这是陈莲河药方上对「蟋蟀一对」的旁注：须捉同一窝里的雌雄一对，才算「原配」。作者借此讽刺庸医的荒唐——连昆虫也被要求守贞节，续弦再嫁便失去入药资格，荒诞中见批判 [1]。",
+   "points": [],
+   "quiz": [],
+   "outside": "「原配」指元配夫妻；「窠」即巢穴、窝。旧时礼教重女子贞节，鲁迅把这一观念挪用到药引上，以夸张笔法揭露中医迷信方剂的荒谬。",
+   "verification": {
+    "total": 1,
+    "verified": 1,
+    "relocated": 0,
+    "dropped": 0,
+    "copyFlag": false
+   }
+  },
+  {
+   "id": "E04",
+   "type": "explain",
+   "q": "（划线）一见有喜",
+   "selection": "一见有喜",
+   "intent": "explain",
+   "answer": "在《无常》里，这是无常画像长方帽正面写的四个字，与另本“你也来了”并列，是迎神赛会中民众亲近的勾魂使者形象 [1]。鲁迅写它，突出无常诙谐可亲，与阴森鬼物形成对照。",
+   "points": [],
+   "quiz": [],
+   "outside": "“一见有喜”是民间吉祥套语，类似“一见大吉”，贴在无常帽上带调侃意味；旧时庙会扮无常也常写此语，以冲淡死亡恐惧。",
+   "verification": {
+    "total": 1,
+    "verified": 1,
+    "relocated": 0,
+    "dropped": 0,
+    "copyFlag": false
+   }
+  },
+  {
+   "id": "E05",
+   "type": "explain",
+   "q": "为什么这么说？",
+   "selection": "谋害隐鼠的怨恨，从此完全消灭了",
+   "intent": "explain",
+   "answer": "指此前误以为阿长踩死“我”的隐鼠而生的怨气。作者用“完全消灭”写惊喜之烈：朝思暮想的《山海经》竟由最不起眼的她买来，前嫌顿消，情感由怨转敬，也为后文怀念作铺垫[1]。",
+   "points": [],
+   "quiz": [],
+   "outside": "隐鼠即鼹鼠，鲁迅幼时饲养的小鼠；他曾疑心是阿长所害，后文交代实为猫所食。此误会是“我”对阿长不满的由来。",
+   "verification": {
+    "total": 1,
+    "verified": 1,
+    "relocated": 0,
+    "dropped": 0,
+    "copyFlag": false
+   }
+  },
+  {
+   "id": "S01",
+   "type": "summary",
+   "q": "总结一下这一篇",
+   "intent": "summary",
+   "chapter": "藤野先生",
+   "answer": "鲁迅回忆在日本仙台学医时与藤野先生的交往，以及自己弃医从文的经过，表达对藤野先生的感激与怀念。",
+   "points": [
+    "东京清国留学生不学无术，鲁迅失望转往仙台学医。",
+    "藤野先生认真为鲁迅添改讲义、订正解剖图，关怀备至。",
+    "匿名信事件与看枪毙中国人的影片，使鲁迅决定弃医从文。",
+    "离别时藤野赠照题“惜别”，鲁迅此后时时怀念并受其激励。"
+   ],
+   "quiz": [],
+   "verification": {
+    "total": 4,
+    "verified": 4,
+    "relocated": 0,
+    "dropped": 0,
+    "copyFlag": false
+   }
+  },
+  {
+   "id": "S02",
+   "type": "summary",
+   "q": "《五猖会》主要讲了什么？",
+   "intent": "summary",
+   "chapter": "五猖会",
+   "answer": "《五猖会》写“我”儿时盼望去看五猖会，临行前却被父亲强迫背诵《鉴略》，背出后兴致全无。",
+   "points": [
+    "儿时罕逢的盛事：全县最盛的东关五猖会，出城还有六十多里水路",
+    "临行前父亲突然出现，命“我”拿《鉴略》来读熟背出",
+    "“我”忐忑强记，家人默默等候，气氛紧张压抑",
+    "背完获准去看会，却已兴致全无，至今诧异父亲此举"
+   ],
+   "quiz": [],
+   "verification": {
+    "total": 4,
+    "verified": 4,
+    "relocated": 0,
+    "dropped": 0,
+    "copyFlag": false
+   }
+  },
+  {
+   "id": "S03",
+   "type": "summary",
+   "q": "帮我概括一下《范爱农》",
+   "intent": "summary",
+   "chapter": "范爱农",
+   "answer": "通过回忆与范爱农从东京初识的误解、故乡重逢的相熟到革命后他困顿淹死的经过，写出了一个正直倔强知识分子在旧中国被轻蔑排斥、终至沉沦的悲剧命运。",
+   "points": [
+    "东京同乡会上，范爱农冷言反对发电，鲁迅觉得他离奇可恶。",
+    "故乡重逢才知他因摇头误会记恨，两人喝酒谈笑渐成好友。",
+    "辛亥革命后他做监学勤快，但看不惯换汤不换药的绍兴光复。",
+    "学监被撤后他四处飘零，醉酒落水而死，鲁迅疑心是自杀。"
+   ],
+   "quiz": [],
+   "verification": {
+    "total": 4,
+    "verified": 4,
+    "relocated": 0,
+    "dropped": 0,
+    "copyFlag": false
+   }
+  },
+  {
+   "id": "Q01",
+   "type": "quiz",
+   "q": "考考我",
+   "intent": "quiz",
+   "chapter": "从百草园到三味书屋",
+   "answer": "读完这一篇，来检验一下：",
+   "points": [],
+   "quiz": [
+    "百草园在作者童年心中是什么？",
+    "长妈妈讲的美女蛇故事，结末的教训是什么？",
+    "作者问先生“怪哉”这虫，先生如何反应？"
+   ],
+   "verification": {
+    "total": 3,
+    "verified": 3,
+    "relocated": 0,
+    "dropped": 0,
+    "copyFlag": false
+   }
+  },
+  {
+   "id": "Q02",
+   "type": "quiz",
+   "q": "给《藤野先生》出几道题",
+   "intent": "quiz",
+   "chapter": "藤野先生",
+   "answer": "读完这一篇，来检验一下：",
+   "points": [],
+   "quiz": [
+    "作者最初在东京看到清国留学生盘辫子、学跳舞，他的态度是？",
+    "藤野先生对“我”的讲义做了什么，让“我”吃惊又感激？",
+    "“我”最终决定离开仙台、不学医学，直接原因是？"
+   ],
+   "verification": {
+    "total": 3,
+    "verified": 3,
+    "relocated": 0,
+    "dropped": 0,
+    "copyFlag": false
+   }
+  },
+  {
+   "id": "O01",
+   "type": "off_topic",
+   "q": "帮我写一份周报",
+   "intent": "off_topic",
+   "answer": "我是书伴，只陪你读《朝花夕拾》。这个问题超出了这本书的范围，我先不回答。你可以划线问我某句话的意思，或者让我总结、出题。",
+   "points": [],
+   "quiz": [],
+   "verification": {
+    "total": 0,
+    "verified": 0,
+    "relocated": 0,
+    "dropped": 0,
+    "copyFlag": false
+   }
+  },
+  {
+   "id": "O02",
+   "type": "off_topic",
+   "q": "今天北京天气怎么样？",
+   "intent": "off_topic",
+   "answer": "我是书伴，只陪你读《朝花夕拾》。这个问题超出了这本书的范围，我先不回答。你可以划线问我某句话的意思，或者让我总结、出题。",
+   "points": [],
+   "quiz": [],
+   "verification": {
+    "total": 0,
+    "verified": 0,
+    "relocated": 0,
+    "dropped": 0,
+    "copyFlag": false
+   }
+  }
+ ]
+}

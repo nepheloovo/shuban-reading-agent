@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>书伴 · 评测看板</title>
+<link rel="stylesheet" href="/style.css">
+<style>
+  body { overflow: auto; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 24px 120px; }
+  h2 { font-size: 20px; margin: 36px 0 6px; }
+  .lead { color: var(--ink-2); margin: 0 0 16px; font-size: 14px; }
+  .hero { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+  .hero h1 { margin: 0; font-size: 26px; }
+  .hero .m { color: var(--muted); font-size: 13px; }
+  .kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 18px; }
+  .kpi { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; }
+  .kpi .k { font-size: 13px; color: var(--ink-2); }
+  .kpi .v { font-size: 30px; font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 2px; }
+  .kpi .s { font-size: 12px; color: var(--muted); }
+  .panels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; }
+  .panel .t { font-weight: 600; font-size: 14px; }
+  .panel .d { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+  .bar-row { display: grid; grid-template-columns: 72px 1fr 44px; align-items: center; gap: 8px; margin: 7px 0; font-size: 12.5px; }
+  .bar-row .nm { color: var(--ink-2); white-space: nowrap; }
+  .bar-row .track { height: 14px; background: var(--paper-2); border-radius: 4px; position: relative; }
+  .bar-row .fill { height: 100%; border-radius: 0 4px 4px 0; }
+  .bar-row .val { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 600; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink-2); margin-bottom: 12px; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+  .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .step { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 14px; font-size: 13px; position: relative; }
+  .step .ver { font-weight: 700; font-size: 15px; }
+  .step .chg { color: var(--ink-2); margin: 6px 0; }
+  .step .find { background: var(--warn-bg); color: var(--warn); border-radius: 8px; padding: 6px 8px; margin-top: 6px; }
+  .step .find.good { background: var(--ok-bg); color: var(--ok); }
+  table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-size: 13px; }
+  th, td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  th { background: var(--paper-2); font-weight: 600; color: var(--ink-2); font-size: 12.5px; }
+  td.c { text-align: center; white-space: nowrap; }
+  tr.row { cursor: pointer; }
+  tr.row:hover td { background: #fffbf0; }
+  .mk { font-weight: 700; }
+  .mk.y { color: var(--ok); } .mk.h { color: #b58a00; } .mk.n { color: var(--warn); }
+  .hall { font-size: 11px; color: var(--warn); display: block; }
+  tr.det td { background: #fdfbf6; }
+  .ansgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .ansgrid .a { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; font-size: 12.5px; }
+  .ansgrid .a b { display: block; margin-bottom: 4px; }
+  .ansgrid .a .r { color: var(--muted); margin-top: 6px; font-size: 12px; }
+  .filters { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+  .filters button { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 5px 12px; font-size: 12.5px; color: var(--ink-2); }
+  .filters button.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .method { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .method .box { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; font-size: 13px; }
+  .method .box h3 { margin: 0 0 6px; font-size: 14px; }
+  .method ul { margin: 0; padding-left: 18px; }
+  .method li { margin: 3px 0; }
+  .tip { position: fixed; pointer-events: none; background: var(--ink); color: #fff; font-size: 12px; padding: 6px 9px; border-radius: 8px; z-index: 30; }
+  @media (max-width: 900px) { .kpis, .panels, .timeline, .method, .ansgrid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .kpis, .panels, .timeline, .method, .ansgrid { grid-template-columns: 1fr; } .wrap { padding: 20px 16px 80px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">伴</span><b>书伴</b><span class="sub">AI 伴读 Agent · Demo</span></div>
+  <nav><a href="/">阅读</a><a href="/eval" class="on">评测看板</a></nav>
+</header>
+<div class="wrap" id="app">加载中…</div>
+<div class="caption" id="caption" hidden></div>
+<div class="tip" id="tip" hidden></div>
+<script>
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const pct = (v) => (v == null ? '—' : `${Math.round(v * 100)}%`);
+// 版本是有序演进，用同一色相由浅到深表示
+const VCOLOR = { bare: '#c9c2b4', v1: '#9fcfc8', v2: '#4fa89e', v3: '#145f58' };
+const TYPE_LABEL = { fact: '事实问答', absent: '书中没有', premise: '错误前提' };
+
+fetch('/api/eval').then((r) => r.json()).then(render).catch((e) => { document.getElementById('app').textContent = '读取评测结果失败：' + e.message; });
+
+function render(R) {
+  const C = Object.fromEntries(R.configs.map((c) => [c.key, c]));
+  const v3 = C.v3.metrics, X = R.v2Extra;
+  const t = new Date(R.generatedAt);
+  let h = `<div class="hero"><div><h1>评测看板</h1><div class="m">${R.caseCount} 道题（问答 ${R.qaCount} 道 + 划线/摘要/出题/书外 ${R.caseCount - R.qaCount} 道） · 被测模型 ${esc(R.model)} · 评分 LLM-as-Judge · ${t.toLocaleString('zh-CN')}</div></div></div>`;
+
+  h += `<div class="kpis">
+    ${kpi('问答正确率', pct(v3.overall), `书伴 v3 · 裸模型为 ${pct(C.bare.metrics.overall)}`)}
+    ${kpi('幻觉率', pct(v3.hallucination), `裸模型为 ${pct(C.bare.metrics.hallucination)}`)}
+    ${kpi('引用逐字核验', pct(X.citeVerifyRate), `${X.citeOk}/${X.citeTotal} 条通过${X.citeRel ? ` · ${X.citeRel} 条自动纠正` : ''}`)}
+    ${kpi('意图路由准确率', pct(X.routeAccuracy), `${R.caseCount} 题，含跨篇目定位`)}
+    ${kpi('平均响应', `${(v3.latencyMs / 1000).toFixed(1)}s`, '问答类，含路由与核验')}
+  </div>`;
+
+  h += `<h2>四个版本对比</h2><p class="lead">同一套问答题、同一份路由结果，只改变策略。颜色越深版本越新。</p>`;
+  h += `<div class="legend">${R.configs.map((c) => `<span><i style="background:${VCOLOR[c.key]}"></i>${esc(c.name)}：${esc(c.desc)}</span>`).join('')}</div>`;
+  const panels = [
+    ['fact', '事实问答正确率', '书里有明确答案', false],
+    ['absent', '拒答正确率', '书里没有答案，应说"书中没有提到"', false],
+    ['premise', '错误前提识别率', '问题本身说错了，应先指出', false],
+    ['hallucination', '幻觉率', '编造原著中没有的情节，越低越好', true],
+  ];
+  h += `<div class="panels">${panels.map(([k, title, d, low]) => `<div class="panel"><div class="t">${title}${low ? ' ↓' : ''}</div><div class="d">${d}</div>${R.configs.map((c) => bar(c, c.metrics[k], title)).join('')}</div>`).join('')}</div>`;
+
+  // 迭代记录
+  h += `<h2>迭代记录：Bad Case → 根因 → 修复 → 评测验收</h2><p class="lead">每一版只解决上一版暴露的一类问题。</p>`;
+  h += `<div class="timeline">
+    ${step('裸模型', '不给原文，直接问大模型', `幻觉率 ${pct(C.bare.metrics.hallucination)}，书里没有的答案会编（如编出先生名字、扮演无常的人名）`, false)}
+    ${step('Prompt v1', '先检索原文再回答', `幻觉降到 ${pct(C.v1.metrics.hallucination)}，但没有出处，用户无法核对；检索没命中时会说"原文未提及"`, false)}
+    ${step('书伴 v2', '强制逐字引用 + 拒答 + 前提校验 + 代码核验引用', `幻觉 ${pct(C.v2.metrics.hallucination)}、前提识别 ${pct(C.v2.metrics.premise)}；但事实题降到 ${pct(C.v2.metrics.fact)}：检索漏召回时，严格拒答把它放大成"过度拒答"`, false)}
+    ${step('书伴 v3', '锁定篇目给整章原文 + 拒答前换篇目复查', `事实 ${pct(C.v3.metrics.fact)}、拒答 ${pct(C.v3.metrics.absent)}、前提 ${pct(C.v3.metrics.premise)}，幻觉 ${pct(C.v3.metrics.hallucination)}；代价是时延 +${((C.v3.metrics.latencyMs - C.v2.metrics.latencyMs) / 1000).toFixed(1)}s`, true)}
+  </div>`;
+
+  // 明细
+  h += `<h2>逐题明细</h2><p class="lead">点击一行，展开四个版本的原始回答和评分理由。✓=1 分，½=0.5 分，✗=0 分。</p>`;
+  h += `<div class="filters" id="flt"><button class="on" data-f="all">全部 ${R.details.length}</button><button data-f="diff">版本间有差异</button><button data-f="fact">事实问答</button><button data-f="absent">书中没有</button><button data-f="premise">错误前提</button></div>`;
+  h += `<table id="tbl"><thead><tr><th style="width:52px">编号</th><th style="width:76px">题型</th><th>问题</th>${R.configs.map((c) => `<th class="c" style="width:76px">${esc(c.name)}</th>`).join('')}</tr></thead><tbody></tbody></table>`;
+
+  // 其他技能
+  h += `<h2>其他技能检查</h2><p class="lead">划线解释、章节摘要、读后出题、书外请求：检查路由与篇目是否正确、引用是否全部通过核验。</p>`;
+  h += `<table><thead><tr><th style="width:52px">编号</th><th>输入</th><th style="width:96px">路由结果</th><th style="width:120px">篇目</th><th style="width:110px">引用核验</th><th>产出摘要</th></tr></thead><tbody>${R.skillRows.map((s) => {
+    const rr = R.routeRows.find((x) => x.id === s.id);
+    const v = s.verification || {};
+    const out = s.points?.length ? s.points.join('；') : s.quiz?.length ? s.quiz.map((q, i) => `${i + 1}. ${q}`).join(' ') : s.answer;
+    return `<tr><td>${s.id}</td><td>${esc(s.q)}</td><td>${rr.ok ? '<span class="mk y">✓</span>' : '<span class="mk n">✗</span>'} ${esc(LABEL[s.intent] || s.intent)}</td><td>${esc(s.chapter || '—')}</td><td>${v.total ? `${v.verified + v.relocated}/${v.total} 通过` : '无引用'}</td><td>${esc((out || '').slice(0, 90))}${(out || '').length > 90 ? '…' : ''}</td></tr>`;
+  }).join('')}</tbody></table>`;
+
+  // 方法
+  h += `<h2>评测方法</h2><p class="lead">这套题和指标不绑定书伴，可以直接拿去测竞品的 AI 读书功能。</p>
+  <div class="method">
+    <div class="box"><h3>题型设计</h3><ul><li><b>事实问答</b> 14 题：答案在原文，考召回与准确</li><li><b>书中没有</b> 5 题：考会不会编</li><li><b>错误前提</b> 5 题：考会不会顺着用户说错的话往下编</li><li><b>技能题</b> 12 题：划线解释、摘要、出题、书外请求，考路由与引用</li></ul></div>
+    <div class="box"><h3>指标与评分</h3><ul><li>正确率 / 拒答正确率 / 前提识别率：LLM-as-Judge 对照参考答案和原文依据打 1 / 0.5 / 0 分</li><li>幻觉率：回答里出现原文不支持的情节</li><li>引用核验率、依据命中率：<b>代码逐字比对</b>，不靠模型自评</li><li>路由准确率：意图 + 篇目同时正确</li></ul></div>
+    <div class="box"><h3>局限与下一步</h3><ul><li>题量小（36 题），单次运行有波动，v3 满分不代表没有问题</li><li>评分模型与被测模型相同，需要人工抽检校准</li><li>下一步：扩到 200+ 题、覆盖更多书型，并加入多次运行一致性指标</li><li>竞品对测：同题在掌阅、微信读书等 App 的 AI 功能中手动提问，用同一标准打分</li></ul></div>
+  </div>`;
+
+  document.getElementById('app').innerHTML = h;
+  window.__R = R;
+  drawRows('all');
+  document.getElementById('flt').addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    document.querySelectorAll('#flt button').forEach((x) => x.classList.toggle('on', x === b));
+    drawRows(b.dataset.f);
+  });
+  document.querySelector('#tbl tbody').addEventListener('click', (e) => {
+    const tr = e.target.closest('tr.row'); if (!tr) return;
+    const nx = tr.nextElementSibling;
+    if (nx && nx.classList.contains('det')) { nx.remove(); return; }
+    tr.insertAdjacentHTML('afterend', detail(R.details.find((d) => d.id === tr.dataset.id), R));
+  });
+  // 柱子悬停提示
+  const tip = document.getElementById('tip');
+  document.addEventListener('mousemove', (e) => {
+    const b = e.target.closest('[data-tip]');
+    if (!b) { tip.hidden = true; return; }
+    tip.textContent = b.dataset.tip; tip.hidden = false;
+    tip.style.left = `${e.clientX + 12}px`; tip.style.top = `${e.clientY + 12}px`;
+  });
+}
+
+const LABEL = { book_qa: '书内问答', explain: '划线解释', summary: '章节摘要', quiz: '读后出题', off_topic: '书外请求' };
+function kpi(k, v, s) { return `<div class="kpi"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`; }
+function bar(c, v, title) {
+  const w = v == null ? 0 : Math.max(v * 100, v > 0 ? 2 : 0);
+  return `<div class="bar-row" data-tip="${esc(c.name)} · ${title}：${pct(v)}"><span class="nm">${esc(c.name)}</span><span class="track"><span class="fill" style="display:block;width:${w}%;background:${VCOLOR[c.key]}"></span></span><span class="val">${pct(v)}</span></div>`;
+}
+function step(ver, chg, find, good) { return `<div class="step"><div class="ver">${ver}</div><div class="chg">${chg}</div><div class="find ${good ? 'good' : ''}">${find}</div></div>`; }
+function mark(r) {
+  const c = +r.correct;
+  const m = c >= 1 ? '<span class="mk y">✓</span>' : c > 0 ? '<span class="mk h">½</span>' : '<span class="mk n">✗</span>';
+  return m + (r.hallucination ? '<span class="hall">幻觉</span>' : '');
+}
+function drawRows(f) {
+  const R = window.__R;
+  const keys = R.configs.map((c) => c.key);
+  const rows = R.details.filter((d) => {
+    if (f === 'all') return true;
+    if (f === 'diff') return new Set(keys.map((k) => `${d.runs[k].correct}|${!!d.runs[k].hallucination}`)).size > 1;
+    return d.type === f;
+  });
+  document.querySelector('#tbl tbody').innerHTML = rows.map((d) => `<tr class="row" data-id="${d.id}"><td>${d.id}</td><td>${TYPE_LABEL[d.type]}</td><td>${esc(d.q)}</td>${keys.map((k) => `<td class="c">${mark(d.runs[k])}</td>`).join('')}</tr>`).join('');
+}
+function detail(d, R) {
+  return `<tr class="det"><td colspan="${3 + R.configs.length}"><div style="font-size:12.5px;margin-bottom:8px"><b>参考答案：</b>${esc(d.ref)}</div><div class="ansgrid">${R.configs.map((c) => {
+    const r = d.runs[c.key];
+    return `<div class="a"><b>${esc(c.name)} ${mark(r)}</b>${r.premise_issue ? `<div style="color:var(--warn)">⚠ ${esc(r.premise_issue)}</div>` : ''}${esc(r.answer || '')}${r.citations?.length ? `<div class="r">引用：${r.citations.map((x) => esc(x.label)).join('、')}</div>` : ''}${r.recheck ? '<div class="r">触发了拒答前复查</div>' : ''}<div class="r">评分理由：${esc(r.reason || '')}</div></div>`;
+  }).join('')}</div></td></tr>`;
+}
+window.__caption = (t, sub) => { const c = document.getElementById('caption'); if (!t) { c.hidden = true; return; } c.innerHTML = `${esc(t)}${sub ? `<small>${esc(sub)}</small>` : ''}`; c.hidden = false; };
+</script>
+</body>
+</html>

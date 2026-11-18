@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>书伴 · AI 伴读</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">伴</span><b>书伴</b><span class="sub">AI 伴读 Agent · Demo</span></div>
+  <nav><a href="/" class="on">阅读</a><a href="/eval">评测看板</a></nav>
+</header>
+
+<main class="layout">
+  <aside class="toc">
+    <div class="book-meta"><div class="book-title">朝花夕拾</div><div class="book-author">鲁迅 · 公版作品</div></div>
+    <ol id="toc"></ol>
+  </aside>
+
+  <section class="reader" id="reader">
+    <h1 id="chTitle"></h1>
+    <div id="chBody" class="ch-body"></div>
+  </section>
+
+  <aside class="chat">
+    <div class="chat-head">
+      <div class="chat-title">问书伴</div>
+      <div class="chat-sub">回答只依据原文，每条引用都逐字核验</div>
+    </div>
+    <div class="chat-log" id="log">
+      <div class="welcome">
+        <p>你好，我是书伴。读到哪儿不懂，<b>划线</b>问我；也可以直接问：</p>
+        <div class="chips" id="chips"></div>
+      </div>
+    </div>
+    <form class="composer" id="composer">
+      <div class="sel-chip" id="selChip" hidden><span id="selText"></span><button type="button" id="selClear" aria-label="清除划线">×</button></div>
+      <div class="row">
+        <input id="q" autocomplete="off" placeholder="问问这本书…">
+        <button class="btn primary" id="send">发送</button>
+      </div>
+    </form>
+  </aside>
+</main>
+
+<div class="sel-pop" id="selPop" hidden>
+  <button id="popExplain">解释这句</button>
+  <button id="popAsk">就这句提问</button>
+</div>
+<div class="caption" id="caption" hidden></div>
+
+<script src="/app.js"></script>
+</body>
+</html>
